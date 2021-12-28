@@ -24,10 +24,8 @@ function draw_check(){
     for (let key in field){
         if (field[key] != 'X' && field[key] != 'O'){
             return false;
-        }else{
-            return true;
         }
-    }
+    }return true;
 }
 
 function space_clear(position){
@@ -84,14 +82,16 @@ function playerset(position){
 }
 
 function botset(position){
-    if(space_clear() && !check_win() && !draw_check()){
+    console.log("inside botmove");
+        console.log("Botmove about to be played");
         field[position] = 'O';
-    }
+        console.log("Botmove played at" + position);
 }
 
 //minimax calculations
 function minimaxbest(){
-    var Bscore = -1000;
+    console.log("MinimaxBest called")
+    var Bscore = -100;
     var Bmove = 0;
     for (let key in field){
         if (field[key] == ' '){
@@ -105,19 +105,21 @@ function minimaxbest(){
         }
     }
     botset(Bmove);
+    console.log("Bot move fed" + Bmove)
     return;
 }
 
 function minimax(depth, MaxMin){
+    console.log("Minimax was called")
     if(who_won('O')){
         return 1;
     } else if (who_won('X')) {
         return -1;
-    } else if (draw_check()){
+    }else if (draw_check){
         return 0;
     }
     if (MaxMin){
-        var Bscore = -1000;
+        var Bscore = -100;
         for (let key in field){
             if(field[key] == ' '){
                 field[key] = 'O';
@@ -125,12 +127,14 @@ function minimax(depth, MaxMin){
                 field[key] = ' ';
                 if(score > Bscore){
                     Bscore = score;
+                    console.log("Score was set")
                 }
             }
         }
+        console.log("Score returned")
         return Bscore
     }else{
-        var Bscore = 1000;
+        var Bscore = 100;
         for (let key in field){
             if(field[key] == ' '){
                 field[key] = 'X';
@@ -138,16 +142,44 @@ function minimax(depth, MaxMin){
                 field[key] = ' ';
                 if (score < Bscore){
                     Bscore = score;
+                    console.log("Score was set 2")
                 }
             }
         }
+        console.log("Score returned")
         return Bscore
     }
 }
 
 // testing loop
-
-function Begin(){
-    var proceed = true;
-    while()
+var proceed = true;
+function game(position){
+        if(!check_win() && draw_check()){
+            console.log("Draw1");
+            proceed = false;
+            return;
+        }else if(check_win() && !draw_check()){
+            console.log("Win1");
+            proceed = false;
+            return
+        }else{
+            minimaxbest()
+            if(draw_check()){
+                console.log("Draw2");
+                proceed = false;
+                return;
+            }else if(check_win() && !draw_check()){
+                console.log("Win2");
+                proceed = false;
+                return;
+            }
+            if(space_clear(position)){
+                playerset(position);
+            }else{
+                console.log("Space is taken")
+            }
 }
+}
+
+//Each button will call the above without the while loop. It will do all the checks each time without looping.
+//It is important to add a reset button if this is done.
