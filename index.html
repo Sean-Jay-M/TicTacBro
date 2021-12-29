@@ -8,17 +8,20 @@
 <p id="TicTacTester">Test</p>
 
 <!-- HTML !-->
-<button class="button-3" role="button" id="P1" onclick="display(); draw_check()">Position 1</button>
-<button class="button-3" role="button" id="P2">Position 2</button>
-<button class="button-3" role="button" id="P3">Position 3</button>
-<button class="button-3" role="button" id="P4">Position 4</button>
-<button class="button-3" role="button" id="P5">Position 5</button>
-<button class="button-3" role="button" id="P6">Position 6</button>
-<button class="button-3" role="button" id="P7">Position 7</button>
-<button class="button-3" role="button" id="P8">Position 8</button>
-<button class="button-3" role="button" id="P9">Position 9</button>
+<button class="button-3" role="button" id="P1" onclick="game(1); display()">Position 1</button>
+<button class="button-3" role="button" id="P2" onclick="game(2); display()">Position 2</button>
+<button class="button-3" role="button" id="P3" onclick="game(3); display()">Position 3</button>
+<button class="button-3" role="button" id="P4" onclick="game(4); display()">Position 4</button>
+<button class="button-3" role="button" id="P5" onclick="game(5); display()">Position 5</button>
+<button class="button-3" role="button" id="P6" onclick="game(6); display()">Position 6</button>
+<button class="button-3" role="button" id="P7" onclick="game(7); display()">Position 7</button>
+<button class="button-3" role="button" id="P8" onclick="game(8); display()">Position 8</button>
+<button class="button-3" role="button" id="P9" onclick="game(9); display()">Position 9</button>
+<button class="button-3" role="button" id="P9" onclick="bot()">Bot</button>
 
 <script src="TicTacBro.js"></script>
+
+<!-- Use images to do the boxes, each image is a button will change on click-->
 
 </body>
 </html>
