@@ -1,23 +1,33 @@
 <!DOCTYPE html>
 <head>
 <link rel="stylesheet" href="index.css">
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body style="background-color: #ff3445;">
 <img src="Images/nobgfinal.png" unselectable="on" id="logo" alt="tictacbrologo">
 <p id="TicTacTester">Test</p>
+<div id="board">
+    <div>
+        <input type="image" src="images/topleft.png" name="saveForm" class="btTxt_submit" id="topleft" onclick="game(1); display()"/>
+        <input type="image" src="images/topmiddle.png" name="saveForm" class="btTxt_submit" id="topmiddle" onclick="game(2); display()"/>
+        <input type="image" src="images/topright.png" name="saveForm" class="btTxt_submit" id="topright" onclick="game(3); display()"/>
+    </div>
+    <div>
+        <input type="image" src="images/middleleft.png" name="saveForm" class="btTxt_submit" id="middleleft" onclick="game(4); display()"/>
+        <input type="image" src="images/middlem.png" name="saveForm" class="btTxt_submit" id="middlem" onclick="game(5); display()"/>
+        <input type="image" src="images/middleright.png" name="saveForm" class="btTxt_submit" id="middleright" onclick="game(6); display()"/>
+    </div>
+    <div>
+        <input type="image" src="images/bottomleft.png" name="saveForm" class="btTxt_submit" id="bottomleft" onclick="game(7); display()"/>
+        <input type="image" src="images/bottommiddle.png" name="saveForm" class="btTxt_submit" id="bottommiddle" onclick="game(8); display()"/>
+        <input type="image" src="images/bottomright.png" name="saveForm" class="btTxt_submit" id="bottomright" onclick="game(9); display()"/>
+    </div>
+</div>
 
-<!-- HTML !-->
-<button class="button-3" role="button" id="P1" onclick="game(1); display()">Position 1</button>
-<button class="button-3" role="button" id="P2" onclick="game(2); display()">Position 2</button>
-<button class="button-3" role="button" id="P3" onclick="game(3); display()">Position 3</button>
-<button class="button-3" role="button" id="P4" onclick="game(4); display()">Position 4</button>
-<button class="button-3" role="button" id="P5" onclick="game(5); display()">Position 5</button>
-<button class="button-3" role="button" id="P6" onclick="game(6); display()">Position 6</button>
-<button class="button-3" role="button" id="P7" onclick="game(7); display()">Position 7</button>
-<button class="button-3" role="button" id="P8" onclick="game(8); display()">Position 8</button>
-<button class="button-3" role="button" id="P9" onclick="game(9); display()">Position 9</button>
-<button class="button-3" role="button" id="P9" onclick="bot()">Bot</button>
+<button class="button button5" onclick="bot()">plAy</button>
+<button class="button button5" onclick="resetboard()">reset</button>
 
 <script src="TicTacBro.js"></script>
 

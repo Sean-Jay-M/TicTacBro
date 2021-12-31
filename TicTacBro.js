@@ -1,3 +1,55 @@
+//Button management
+src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"
+
+function positiontaken(position){
+    if(field[position] == 'O'){
+        console.log("Dang bro, I already played there !")
+    } else if (field[position] == 'X'){
+        console.log ("Bruh, you already played there.")
+    }
+}
+
+function resetboard(){
+    field = {1: ' ', 2: ' ', 3: ' ',
+    4: ' ', 5: ' ', 6: ' ',
+    7: ' ', 8: ' ', 9: ' ',};
+
+    document.getElementById("topleft").src = "images/topleft.png";
+    document.getElementById("topmiddle").src = "images/topmiddle.png";
+    document.getElementById("topright").src = "images/topright.png";
+    document.getElementById("middleleft").src = "images/middleleft.png";
+    document.getElementById("middlem").src = "images/Middlem.png";
+    document.getElementById("middleright").src = "images/middleright.png";
+    document.getElementById("bottomleft").src = "images/bottomleft.png";
+    document.getElementById("bottommiddle").src = "images/bottommiddle.png";
+    document.getElementById("bottomright").src = "images/bottomright.png";
+}
+
+function changeimageBot(image){
+    if (image == 1){
+        document.getElementById("topleft").src = "images/topleftBot.png";
+    } else if (image == 2){
+        document.getElementById("topmiddle").src = "images/topmiddleBot.png";
+    } else if (image == 3){
+        document.getElementById("topright").src = "images/toprightBot.png";
+    } else if (image == 4){
+        document.getElementById("middleleft").src = "images/middleleftBot.png";
+    } else if (image == 5){
+        document.getElementById("middlem").src = "images/MiddlemBot.png";
+    } else if (image == 6){
+        document.getElementById("middleright").src = "images/middlerightBot.png";
+    } else if (image == 7){
+        document.getElementById("bottomleft").src = "images/bottomleftBot.png";
+    } else if (image == 8){
+        document.getElementById("bottommiddle").src = "images/bottommiddleBot.png";
+    } else if (image == 9){
+        document.getElementById("bottomright").src = "images/bottomrightBot.png";
+    }
+}
+
+
+
+
 //define the variables and return statement (for the console)
 var field = {1: ' ', 2: ' ', 3: ' ',
 4: ' ', 5: ' ', 6: ' ',
@@ -16,7 +68,6 @@ function represent(){
 
 function display(){
     document.getElementById("TicTacTester").innerHTML= represent();
-    console.log(represent());
 }
 
 //various checks for the state of the game
@@ -32,6 +83,7 @@ function space_clear(position){
     if (field[position] == ' '){
         return true;
     }else{
+        positiontaken(position);
         return false;
     }
 }
@@ -79,18 +131,27 @@ function who_won(value){
 //bot and player move setting 
 function playerset(position){
     field[position] = 'X';
+    if (check_win()){
+        console.log("Player Won !")
+    }
+    if (draw_check()){
+        console.log("Draw!")
+    }
 }
 
 function botset(position){
-    console.log("inside botmove");
-        console.log("Botmove about to be played");
+        changeimageBot(position);
         field[position] = 'O';
-        console.log("Botmove played at" + position);
+    if (check_win()){
+        console.log("Bot     Won !")
+    }
+    if (draw_check()){
+        console.log("Draw!")
+    }
 }
 
 //minimax calculations
 function minimaxbest(){
-    console.log("MinimaxBest called")
     var Bscore = -100;
     var Bmove = 0;
     for (let key in field){
@@ -105,7 +166,6 @@ function minimaxbest(){
         }
     }
     botset(Bmove);
-    console.log("Bot move fed" + Bmove)
 }
 
 function minimax(depth, MaxMin){
@@ -116,9 +176,7 @@ function minimax(depth, MaxMin){
     }else if (draw_check()){
         return 0;
     }
-    console.log("minimax2")
     if (MaxMin){
-        //console.log("Defense.")
         var Bscore = -100;
         for (let key in field){
             if(field[key] == ' '){
@@ -132,7 +190,6 @@ function minimax(depth, MaxMin){
         }
         return Bscore
     }else{
-        //console.log("Offense.")
         var Bscore = 100;
         for (let key in field){
             if(field[key] == ' '){
@@ -152,20 +209,16 @@ function minimax(depth, MaxMin){
 var proceed = true;
 function game(position){
         if(!check_win() && draw_check()){
-            console.log("Draw1");
             proceed = false;
             return;
         }else if(check_win() && !draw_check()){
-            console.log("Win1");
             proceed = false;
             return
         }else{
             if(draw_check()){
-                console.log("Draw2");
                 proceed = false;
                 return;
             }else if(check_win() && !draw_check()){
-                console.log("Win2");
                 proceed = false;
                 return;
             }

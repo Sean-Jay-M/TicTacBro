@@ -1,8 +1,8 @@
 #logo{
     pointer-events: none;
     cursor: default;
-    height: 35%;
-    width: 35%;
+    height: 30%;
+    width: 30%;
 }
 
 /* CSS */
@@ -56,3 +56,47 @@
     background-color: #298e46;
     box-shadow: rgba(20, 70, 32, .2) 0 1px 0 inset;
   }
+
+/* end of green buttons */
+
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.button5 {
+  background-color: white;
+  color: black;
+  border: 2px solid #555555;
+  font-family: 'Major Mono Display', monospace;
+  font-weight: bold;
+}
+
+.button5:hover {
+  background-color: #555555;
+  color: white;
+}
+
+.btTxt_submit:hover{
+  -webkit-filter: brightness(92%);
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.btTxt_submit{
+  height: 13%;
+  width: 13%;
+  padding: 0px;
+  margin: 0px;
+}
