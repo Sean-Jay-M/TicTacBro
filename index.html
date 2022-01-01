@@ -7,27 +7,30 @@
 </head>
 <body style="background-color: #ff3445;">
 <img src="Images/nobgfinal.png" unselectable="on" id="logo" alt="tictacbrologo">
-<p id="TicTacTester">Test</p>
-<div id="board">
-    <div>
-        <input type="image" src="images/topleft.png" name="saveForm" class="btTxt_submit" id="topleft" onclick="game(1); display()"/>
-        <input type="image" src="images/topmiddle.png" name="saveForm" class="btTxt_submit" id="topmiddle" onclick="game(2); display()"/>
-        <input type="image" src="images/topright.png" name="saveForm" class="btTxt_submit" id="topright" onclick="game(3); display()"/>
-    </div>
-    <div>
-        <input type="image" src="images/middleleft.png" name="saveForm" class="btTxt_submit" id="middleleft" onclick="game(4); display()"/>
-        <input type="image" src="images/middlem.png" name="saveForm" class="btTxt_submit" id="middlem" onclick="game(5); display()"/>
-        <input type="image" src="images/middleright.png" name="saveForm" class="btTxt_submit" id="middleright" onclick="game(6); display()"/>
-    </div>
-    <div>
-        <input type="image" src="images/bottomleft.png" name="saveForm" class="btTxt_submit" id="bottomleft" onclick="game(7); display()"/>
-        <input type="image" src="images/bottommiddle.png" name="saveForm" class="btTxt_submit" id="bottommiddle" onclick="game(8); display()"/>
-        <input type="image" src="images/bottomright.png" name="saveForm" class="btTxt_submit" id="bottomright" onclick="game(9); display()"/>
+<div id="AI">
+    <img src="Images/AIStart.png" id="BOT" alt="Bro">
+    <p id="talking"> clicK plAy to beGin !</p>
+    <button class="button button5" onclick="resetreactions(); restarttrack(); resetboard(); AIstart(); reset(); bot()">plAy</button>
+</div>
+<div id="container">
+    <div id="board" class="subcontainers">
+        <div>
+            <input type="image" src="images/topleft.png" name="saveForm" class="btTxt_submit" id="topleft" onclick="game(1)"/>
+            <input type="image" src="images/topmiddle.png" name="saveForm" class="btTxt_submit" id="topmiddle" onclick="game(2)"/>
+            <input type="image" src="images/topright.png" name="saveForm" class="btTxt_submit" id="topright" onclick="game(3)"/>
+        </div>
+        <div>
+            <input type="image" src="images/middleleft.png" name="saveForm" class="btTxt_submit" id="middleleft" onclick="game(4)"/>
+            <input type="image" src="images/middlem.png" name="saveForm" class="btTxt_submit" id="middlem" onclick="game(5)"/>
+            <input type="image" src="images/middleright.png" name="saveForm" class="btTxt_submit" id="middleright" onclick="game(6)"/>
+        </div>
+        <div>
+            <input type="image" src="images/bottomleft.png" name="saveForm" class="btTxt_submit" id="bottomleft" onclick="game(7)"/>
+            <input type="image" src="images/bottommiddle.png" name="saveForm" class="btTxt_submit" id="bottommiddle" onclick="game(8)"/>
+            <input type="image" src="images/bottomright.png" name="saveForm" class="btTxt_submit" id="bottomright" onclick="game(9)"/>
+        </div>
     </div>
 </div>
-
-<button class="button button5" onclick="bot()">plAy</button>
-<button class="button button5" onclick="resetboard()">reset</button>
 
 <script src="TicTacBro.js"></script>
 
