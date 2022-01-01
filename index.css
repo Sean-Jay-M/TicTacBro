@@ -27,6 +27,7 @@
   border: 2px solid black;
   font-family: 'Major Mono Display', monospace;
   font-weight: bold;
+  margin-left: 23%;
 }
 
 .button5:hover {
@@ -75,3 +76,4 @@
   border-radius: 25px;
   font-family: 'Major Mono Display', monospace;
 }
+
