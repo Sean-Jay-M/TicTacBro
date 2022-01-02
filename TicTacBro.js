@@ -229,9 +229,6 @@ var i6 = 0;
 var speed6 = 50; 
 
 function newgame(){
-    console.log("in newgame")
-    console.log(i6)
-    console.log(speed6)
     if (i6 < txt6.length) {
       document.getElementById("talking").innerHTML += txt6.charAt(i6);
       i6++;
@@ -426,7 +423,6 @@ function minimax(depth, MaxMin){
 var proceed = true;
 async function game(position){
         if(restarts == 0){
-            return;
         } else if(!check_win() && draw_check()){
             proceed = false;
             return;
