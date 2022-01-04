@@ -51,6 +51,8 @@
 
 
 #BOT{
+  pointer-events: none;
+  cursor: default;
   height: 80%;
   width: 80%;
 
