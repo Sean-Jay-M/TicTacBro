@@ -1,125 +1,40 @@
 <!DOCTYPE html>
-<html>
 <head>
-    <link rel="stylesheet" href="index.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="index.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Roboto&display=swap" rel="stylesheet">
 </head>
-<body style="background-color: #ffffff;">
-<div>
-    <img src="images/nasapi.png" id="logo">
+<body style="background-color: #ff3445;">
+<img src="Images/nobgfinal.png" unselectable="on" id="logo" alt="tictacbrologo">
+<div id="AI">
+    <img src="Images/AIStart.png" id="BOT" alt="Bro">
+    <p id="talking"> clicK plAy to beGin !</p>
+    <button class="button button5" onclick="resetreactions(); restarttrack(); resetboard(); reset(); bot()">plAy</button>
 </div>
-<div id="main">
-    <button type="button" class="collapsible" id="InSight">InSight: Mars Weather Service</button>
-    <div class="content">
-        <p class="paragraphs" id="ErrorMsg"></p>
-        <p class="paragraphs" id="InSightDesc">NASA's InSight Mars lander collects continuous measurements with regards to Weather on the surface of Mars at Elysium Planitia, near Mars' equator.</p>
-        <div class="paragraphs" id="InSightLine1"></div>
-        <canvas id="myCanvas3" width="500" height="200" style="border:1px solid #d3d3d3;"></canvas>
-        <p class="paragraphs" id="TempInfo">All temperature given in Celsius</p>
-        <div class="paragraphs" id="InSightLine2"></div>
-    </div>
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-        <span class="close"></span>
-        <div class="asteroidSize">
-            <canvas id="myCanvas" width="500" height="250" style="border:1px solid #d3d3d3;"></canvas>
-            <p class="paragraphs" id="asteroidDesc"></p>
+<div id="container">
+    <div id="board" class="subcontainers">
+        <div>
+            <input type="image" src="images/topleft.png" name="saveForm" class="btTxt_submit" id="topleft" onclick="game(1)"/>
+            <input type="image" src="images/topmiddle.png" name="saveForm" class="btTxt_submit" id="topmiddle" onclick="game(2)"/>
+            <input type="image" src="images/topright.png" name="saveForm" class="btTxt_submit" id="topright" onclick="game(3)"/>
         </div>
-        <div class="asteroidPlot">
-            <canvas id="myCanvas2" width="500" height="750" style="border:1px solid #d3d3d3;"></canvas>
-            <p class="paragraphs" id="asteroidPlotDesc"></p>
+        <div>
+            <input type="image" src="images/middleleft.png" name="saveForm" class="btTxt_submit" id="middleleft" onclick="game(4)"/>
+            <input type="image" src="images/middlem.png" name="saveForm" class="btTxt_submit" id="middlem" onclick="game(5)"/>
+            <input type="image" src="images/middleright.png" name="saveForm" class="btTxt_submit" id="middleright" onclick="game(6)"/>
         </div>
+        <div>
+            <input type="image" src="images/bottomleft.png" name="saveForm" class="btTxt_submit" id="bottomleft" onclick="game(7)"/>
+            <input type="image" src="images/bottommiddle.png" name="saveForm" class="btTxt_submit" id="bottommiddle" onclick="game(8)"/>
+            <input type="image" src="images/bottomright.png" name="saveForm" class="btTxt_submit" id="bottomright" onclick="game(9)"/>
         </div>
     </div>
-    <button type="button" class="collapsible" id="SSD">Solar System Dynamics and Center for Near-Earth Object Studies</button>
-    <div class="content">
-        <p class="paragraphs" id="apoddesc" >Data relating to: Fireballs, Comet Close Approaches, Mission Design, NHATS, Scout and Sentry. <br><br><span style="font-weight: bold;">Fireball Data</span><br><span style="font-size: small;">Some Fireballs may be removed due to incomplete data. <br> Only displaying most recent 20.</span></p>
-        <canvas id="myCanvas4" width="1024" height="550" style="border:1px solid #d3d3d3; background-image:url('images/worldMap.png');"></canvas>
-        <p class="paragraphs" id="colour">Colour represents total impact energy (kt)</p>
-        <div id="colourDiv">
-            <table id="colourexp">
-            <td>
-            <svg width="20" height="20">
-                <rect x="0" y="0" width="20" height="20" style="fill:#000080;stroke:black;stroke-width:2;" />
-            </svg>
-            x &lt;= -1.0 KT
-            </td>
-            <td>
-            <svg width="20" height="20">
-                <rect x="0" y="0" width="20" height="20" style="fill:#0000FF;stroke:black;stroke-width:2;" />
-            </svg>
-            -1.0 to -0.5 KT
-            </td>
-            <td>
-            <svg width="20" height="20">
-                <rect x="0" y="0" width="20" height="20" style="fill:#00FFFF;stroke:black;stroke-width:2;" />
-            </svg>
-            -0.5 to 0 KT
-            </td>
-            <td>
-            <svg width="20" height="20">
-                <rect x="0" y="0" width="20" height="20" style="fill:#00FF00;stroke:black;stroke-width:2;" />
-            </svg>
-            0 to 0.5 KT
-            </td>
-            <td>
-            <svg width="20" height="20">
-                <rect x="0" y="0" width="20" height="20" style="fill:#FFFF00;stroke:black;stroke-width:2;" />
-            </svg>
-            0.5 to 1 KT
-            </td>
-            <td>
-            <svg width="20" height="20">
-                <rect x="0" y="0" width="20" height="20" style="fill:#ff7f50;stroke:black;stroke-width:2;" />
-            </svg>
-            1 to 1.5 KT
-            </td>
-            <td>
-            <svg width="20" height="20">
-                <rect x="0" y="0" width="20" height="20" style="fill:#ff8c00;stroke:black;stroke-width:2;" />
-            </svg>
-            1.5 to 2 KT
-            </td>
-            <td>
-            <svg width="20" height="20">
-                <rect x="0" y="0" width="20" height="20" style="fill:#b22222;stroke:black;stroke-width:2;" />
-            </svg>
-            x &gt;= 2 KT
-            </td>
-            </table>
-        </div>
-        <p class="paragraphs" id="SSD1"></p>
-        <div id="SSDTables"></div>
-    </div> 
-    <button type="button" class="collapsible NEOWSC" id="NEOWS">Near Earth Object Web Service (NEOWS)</button>
-    <div class="content">
-        <p class="paragraphs" id="NEOWSP">The Near Earth Object Web Service or N.E.O.W.S provides deep data pertaining to Asteroids which come into close proximity to Earth. The API is maintained by the SpaceRocks Team.</p>
-        <div id="tables"></div>
-        <p class="paragraphs"></p>
-        <p class="paragraphs"></p>
-    </div>
-    <button type="button" class="collapsible">Exoplanet</button>
-    <div class="content">
-        <p class="paragraphs" id="apoddesc">NASA provides free and open access to its Exoplanet Archive, a collection of planets outside our Solar System.</p>
-    </div>
-    <button type="button" class="collapsible" id="APOD">Astronomy Picture Of The Day (APOD)</button>
-    <div class="content">
-        <div id="image"></div>
-        <select id="selectNumber" onchange="newphoto(this);"></select>
-        <p class="paragraphs" id="title"></p>
-        <p class="paragraphs" id="error"></p>
-        <p class="paragraphs" id="description"></p>
-        <p class="paragraphs" id="apoddesc">NASA runs Astronomy Picture Of Day, which is exqactly as the name describes: an Astronomy Photo each day since June 16 1995.</p>
-    </div>
-    <button type="button" class="collapsible">Mars Rover Photos</button>
-    <div class="content">
-        <p class="paragraphs" id="apoddesc">A Collection of Photos from the various Rovers which served on Mars.</p>
-        <select id="selectNumber2" onchange=""></select>
-    </div> 
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-<script src="index.js"></script>
+
+<script src="TicTacBro.js"></script>
+
+<!-- Use images to do the boxes, each image is a button will change on click-->
+
 </body>
 </html>
