@@ -9,6 +9,6 @@ Completed over the course of a few hours.
 
 # Notes
 
-- This is a basic TicTacToe minimax with a Big-O notation of O(b^m). 
+- This is a very basic TicTacToe minimax with a Big-O notation of O(b^m).
   - Where B is the number of moves in the available in the game and m represents the depth of the tree. 
 
